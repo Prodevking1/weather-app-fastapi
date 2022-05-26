@@ -1,0 +1,56 @@
+{% block content %}
+
+    <img src="/static/img/cloud.png" style="float: left; max-width: 48px; margin-right: 20px;" alt="">
+
+    <h1><span class="font-semi-bold">Fast Meteo</span> <span class="smaller">A RESTful weather service</span>
+    </h1>
+
+    <div style="clear:both;"></div>
+    <br>
+    <br>
+    <p class="lead">
+        <strong>Endpoints</strong>
+    <ul>
+        <li>
+            <strong>Tempereature courante d'une ville</strong><br>
+            <a href="/api/meteo/lviv?country=UA&units=imperial"
+               target="_blank"
+            ><strong>GET /api/weather/{city}?country={country}</strong></a><br>
+            <br>
+            <div style="font-size: 12px;">
+                <strong>Parametres</strong>
+                <ul>
+                    <li><strong>Requis</strong>: <code>city={ville}</code> - Ville dont vous voulez la temperature.
+                    </li>
+                    <li>Optionel: <code>country={country}</code> - pays, (ex: BF)
+                    </li>
+                    <li>Optionel: <code>units={unites}</code> - units: {metric, imperial, standard}, metric par defaut.
+                    </li>
+                </ul>
+
+                <strong>Reponse JSON</strong>
+                <ul>
+                    <li>Cliquez <a href="/api/meteo/lviv?country=UA&units=imperial"
+                                 target="_blank"
+                    >ce lien</a> pour voir un exemple.
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    </p>
+
+    {% if events %}
+    <div>
+        <h2>Evenements recents</h2>
+        <ul>
+            {% for e in events %}
+            <li> {{ e.location.city }}, {{ e.location.country }}: {{ e.description }} </li>
+            {%  endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    </div>
+
+{% endblock %}
