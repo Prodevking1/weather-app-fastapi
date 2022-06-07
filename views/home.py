@@ -1,7 +1,7 @@
 import fastapi
 from starlette.templating import Jinja2Templates
 from starlette.requests import Request
-from starlette.staticfiles import StaticFiles
+from starlette.responses import RedirectResponse
 
 templates = Jinja2Templates(directory ='templates')
 router = fastapi.APIRouter()
@@ -12,4 +12,4 @@ def index(request: Request):
 
 @router.get('/favicon.ico')
 def favicon():
-    return fastapi.response.RedirectResponse(url = '/favicon.ico')
+    return RedirectResponse(url = '/favicon.ico')

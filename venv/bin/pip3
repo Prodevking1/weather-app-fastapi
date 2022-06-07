@@ -1,4 +1,4 @@
-#!/home/rachid/Bureau/DEV/PYTHON/weather_app/virt_env/bin/python3
+#!/home/rachid/Bureau/DEV/PYTHON/weather_app/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
